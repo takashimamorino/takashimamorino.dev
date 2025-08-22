@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "react-server build ./src/App.tsx",
-    "dev": "react-server ./src/App.tsx",
+    "build": "react-server build",
+    "dev": "react-server",
     "format": "biome format --write .",
     "format:check": "biome check --write .",
     "preinstall": "npx only-allow bun",
@@ -17,14 +17,19 @@
   },
   "dependencies": {
     "@lazarv/react-server": "0.0.0-experimental-2dab5bb-20250522-222c3bcf",
-    "@typescript/native-preview": "^7.0.0-dev.20250821.1"
+    "gray-matter": "^4.0.3",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
+    "shiki": "^3.11.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.0",
+    "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.0.9",
     "@types/node": "^24.3.0",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
+    "@typescript/native-preview": "^7.0.0-dev.20250822.1",
     "@vitejs/plugin-react": "^5.0.1",
     "babel-plugin-react-compiler": "0.0.0-experimental-a08709b-20250207",
     "husky": "^9.1.7",

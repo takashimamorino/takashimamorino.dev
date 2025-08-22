@@ -13,18 +13,49 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### Code Quality
 
 - `bun typecheck` - Run TypeScript type checking
+- `bun format` - Format code with Biome
+- `bun lint` - Lint code with OxLint
 
 ## Architecture
 
-This is a React Server Components application using [@lazarv/react-server](https://react-server.dev) framework with:
+This is a blog application built with React Server Components using [@lazarv/react-server](https://react-server.dev) framework.
 
-- **Entry Point**: `src/App.tsx` - Main application component that renders the full HTML document
-- **Styling**: Tailwind CSS v4 configured via Vite plugin
-- **Path Aliases**: `@/` maps to `src/` directory
-- **React Compiler**: Configured with annotation mode for optimization
+### Project Structure
+
+- **`src/app/`** - Application pages and layouts
+  - `layout.tsx` - Root layout with header and footer
+  - `page.tsx` - Home page with blog post list
+  - `posts/[slug]/page.tsx` - Individual blog post pages
+- **`src/lib/`** - Utility functions and core logic
+  - `posts.ts` - Markdown processing and post management
+- **`src/styles/`** - CSS files
+  - `prose.css` - Typography styles for blog content
+- **`posts/`** - Markdown blog posts with frontmatter
+
+### Key Features
+
+- **Markdown Processing**: Uses `remark` and `gray-matter` for parsing Markdown files
+- **Syntax Highlighting**: Code blocks styled with `shiki` using `catppuccin-mocha` theme
+- **Styling**: Tailwind CSS v4 with Typography plugin
 - **TypeScript**: Strict mode enabled with ESNext target
+- **Code Quality**: Biome formatter, OxLint linter, Husky pre-commit hooks
+
+### Blog Post Format
+
+Posts are stored as Markdown files in the `posts/` directory with frontmatter:
+
+```markdown
+---
+title: Post Title
+published: YYYY-MM-DD
+---
+
+Post content...
+```
 
 ## Key Configuration
 
-- React 19 with experimental types for Server Components
+- React Server Components with experimental types
 - Vite bundler with React and Tailwind plugins
+- No Next.js dependencies - pure React Server Components
+- Relative imports (no path aliases)
