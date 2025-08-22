@@ -1,4 +1,9 @@
 export default {
   root: "src/app",
-  adapter: "@lazarv/react-server-adapter-vercel",
+  adapter: [
+    "@lazarv/react-server-adapter-vercel",
+    {
+      serverlessFunctions: false,
+    },
+  ],
 };
