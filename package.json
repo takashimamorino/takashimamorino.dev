@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.0",
+    "@lazarv/react-server-adapter-vercel": "^0.0.0-experimental-138ef89-20241217-08cf78b6",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.0.9",
     "@types/node": "^24.3.0",
