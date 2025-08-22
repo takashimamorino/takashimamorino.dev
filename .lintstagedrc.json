@@ -1,0 +1,5 @@
+{
+  "package.json": ["sort-package-json"],
+  "*.{js,jsx,ts,tsx,json,jsonc,md}": ["biome format --write"],
+  "*.{js,jsx,ts,tsx}": ["oxlint --fix"]
+}

@@ -1,0 +1,13 @@
+# Dependencies
+node_modules
+
+# @lazarv/react-server specific
+.react-server
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
