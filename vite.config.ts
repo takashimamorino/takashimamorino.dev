@@ -2,11 +2,13 @@ import rsc from "@vitejs/plugin-rsc";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
+import { cloudflare } from "@cloudflare/vite-plugin";
 // import inspect from "vite-plugin-inspect";
 
 export default defineConfig({
   plugins: [
     tailwindcss(),
+    cloudflare(),
     rsc({
       // `entries` option is only a shorthand for specifying each `rollupOptions.input` below
       // > entries: { rsc, ssr, client },
