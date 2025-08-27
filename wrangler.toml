@@ -1,0 +1,18 @@
+name = "takashimamorino-dev"
+main = "src/worker.ts"
+compatibility_date = "2024-12-20"
+compatibility_flags = ["nodejs_compat"]
+
+[site]
+bucket = "./dist/client"
+
+[build]
+command = "bun run build"
+
+# Environment variables can be set here
+[vars]
+NODE_ENV = "production"
+
+# For development
+[dev]
+port = 8787
