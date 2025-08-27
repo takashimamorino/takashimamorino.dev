@@ -1,0 +1,43 @@
+{
+  "name": "takashimamorino.dev",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "prepare": "husky",
+    "preview": "vite preview",
+    "sort-package": "sort-package-json",
+    "typecheck": "tsgo --noEmit"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.2",
+    "@tailwindcss/vite": "^4.1.12",
+    "@types/react": "^19.1.11",
+    "@types/react-dom": "^19.1.8",
+    "@typescript/native-preview": "^7.0.0-dev.20250826.1",
+    "@vitejs/plugin-react": "latest",
+    "@vitejs/plugin-rsc": "latest",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.5",
+    "oxlint": "^1.13.0",
+    "oxlint-tsgolint": "^0.0.4",
+    "rsc-html-stream": "^0.0.7",
+    "sort-package-json": "^3.4.0",
+    "tailwindcss": "^4.1.12",
+    "vite": "npm:rolldown-vite@latest"
+  },
+  "engines": {
+    "bun": ">=1.1.20"
+  }
+}
