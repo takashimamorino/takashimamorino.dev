@@ -2,6 +2,7 @@
   "name": "takashimamorino-dev",
   "compatibility_date": "2025-08-28",
   "assets": {
-    "directory": "./dist"
+    "directory": "./dist",
+    "serve_single_page_app": true
   }
 }
