@@ -25,52 +25,19 @@ bun run sort-package   # Sort package.json
 
 ## Architecture Overview
 
-This project uses a sophisticated 3-environment build system:
+This is a standard Vite + React application with the following features:
 
-### 1. RSC Environment (`src/framework/entry.rsc.tsx`)
-
-- Handles React Server Components rendering
-- Processes server actions (POST requests)
-- Serializes React components to RSC stream
-- Routes requests to SSR or returns raw RSC based on content-type
-
-### 2. SSR Environment (`src/framework/entry.ssr.tsx`)
-
-- Traditional server-side HTML rendering
-- Deserializes RSC stream back to React components
-- Injects RSC payload into HTML for hydration
-- Uses edge runtime (`react-dom/server.edge`)
-
-### 3. Client Environment (`src/framework/entry.browser.tsx`)
-
-- Handles client-side hydration
-- Manages SPA navigation with History API
-- Re-fetches RSC on navigation
-- Implements server action callbacks
+- **React 19** for the latest React features
+- **Vite** with **Rolldown** (Rust-based bundler) for fast builds
+- **TailwindCSS v4** with Vite integration
+- **TypeScript** for type safety
+- **Bun runtime** requirement (>=1.1.20)
 
 ## Key Technical Details
 
-- **React 19** with full RSC support including server actions
-- **Vite** with `@vitejs/plugin-rsc` for RSC compilation
-- **Rolldown** (Rust-based bundler) via `rolldown-vite`
-- **Bun runtime** requirement (>=1.1.20)
-- **TailwindCSS v4** with Vite integration
-
-## Server Actions Flow
-
-1. Form submissions or programmatic calls trigger POST requests
-2. RSC environment processes the action
-3. State updates and new RSC payload generated in single round-trip
-4. Client receives updated payload and re-renders
-
-## Development Features
-
-- Hot Module Replacement for both client and server code
-- Debug URLs:
-  - `?__rsc` - View raw RSC stream
-  - `?__html` - Force HTML response
-  - `?__nojs` - Simulate JavaScript-disabled browser
-- Progressive enhancement support for forms
+- Single-page application with client-side rendering
+- Hot Module Replacement for fast development
+- Optimized production builds with code splitting
 
 ## Configuration
 
@@ -83,34 +50,23 @@ This project uses a sophisticated 3-environment build system:
 
 ### Build Configuration
 
-The `vite.config.ts` defines three separate builds:
+The `vite.config.ts` uses:
+- `@vitejs/plugin-react` for React support and Fast Refresh
+- `@tailwindcss/vite` for TailwindCSS v4 integration
+- Standard Vite build configuration with `index.html` as entry point
 
-- RSC build targeting `./src/framework/entry.rsc.tsx`
-- SSR build targeting `./src/framework/entry.ssr.tsx`
-- Browser build targeting `./src/framework/entry.browser.tsx`
+## Project Structure
 
-## Important Patterns
-
-### Adding Server Components
-
-Server components go in regular `.tsx` files without "use client" directive. They can use async/await and access server-only APIs.
-
-### Adding Client Components
-
-Mark files with `"use client"` directive at the top. These run in the browser and can use hooks and browser APIs.
-
-### Server Actions
-
-```tsx
-async function serverAction() {
-	"use server";
-	// Server-side logic here
-}
+```
+src/
+├── main.tsx      # Application entry point
+├── App.tsx       # Root component
+└── index.css     # Global styles with Tailwind directives
 ```
 
-### Navigation
+## Adding Components
 
-Use standard `<a>` tags for navigation. The client-side router intercepts clicks for SPA behavior while maintaining progressive enhancement.
+Create React components in `.tsx` files. The application uses standard React patterns with hooks and functional components.
 
 ## Dependencies Notes
 
