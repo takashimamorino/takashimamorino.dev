@@ -1,3 +1,6 @@
+import { RouterProvider } from "@tanstack/react-router";
+import { router } from "./router";
+
 export function App() {
-  return <h1 className="text-2xl">takashimamorion.dev 03</h1>;
+  return <RouterProvider router={router} />;
 }
