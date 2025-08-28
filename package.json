@@ -6,7 +6,6 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "deploy": "bun run build && wrangler deploy",
     "dev": "vite",
     "format": "biome format --write .",
     "format:check": "biome format .",
